@@ -1,11 +1,11 @@
 {{- if .Values.mlp.ingress.enabled }}
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: {{ template "mlp.fullname" .}}
   namespace: {{ .Release.Namespace }}
   annotations:
-    ingress.class: {{ .Values.mlp.ingress.class }}
+    kubernetes.io/ingress.class: {{ .Values.mlp.ingress.class }}
   labels:
     app: {{ include "mlp.name" . }}
     chart: {{ include "mlp.chart" . }}
